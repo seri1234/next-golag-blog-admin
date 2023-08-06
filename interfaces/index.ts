@@ -4,7 +4,10 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type User = {
+export type Post = {
   id: number
-  name: string
+  title: string
+  content: string
+  createdAt: any
+  updatedAt: any
 }
