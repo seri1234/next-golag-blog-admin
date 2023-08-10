@@ -1,8 +1,13 @@
 export async function getSortedPostsData() {
   const res = await fetch('http://'+ process.env.HOST_DOMAIN +'/api/v1/posts')
-  const data = await res.json()
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('エラーが発生しました');
+    }
+    return response.json();
+  })
 
-    const sortData = data.sort(
+    const sortData = res.sort(
       (a, b) => {
         if (a.createdAt > b.createdAt) {
           return -1;
@@ -19,9 +24,14 @@ export async function getSortedPostsData() {
 
 export async function getAllPostIds() {
   const res = await fetch('http://'+ process.env.HOST_DOMAIN +'/api/v1/posts')
-  const posts = await res.json()
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('エラーが発生しました');
+    }
+    return response.json();
+  })
 
-  return posts.map((post) => {
+  return res.map((post) => {
     return {
       params: {
         id: post.id,
@@ -32,7 +42,25 @@ export async function getAllPostIds() {
 
 export async function getPostData(id) {
   const res = await fetch('http://'+ process.env.HOST_DOMAIN +'/api/v1/post/'+ id)
-  const data = await res.json()
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('エラーが発生しました');
+    }
+    return response.json();
+  })
 
-  return data[0]
+  return res[0]
+}
+
+
+export async function createPostData() {
+  const res = await fetch('http://'+ process.env.HOST_DOMAIN +'/api/v1/post/')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('エラーが発生しました');
+    }
+    return response.json();
+  })
+
+  return res[0]
 }
