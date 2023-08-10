@@ -1,5 +1,5 @@
 export async function getSortedPostsData() {
-  const res = await fetch('http://'+ process.env.HOST_DOMAIN +'/api/v1/posts')
+  const res = await fetch('http://'+ process.env.API_URL +'/api/v1/posts')
   .then(response => {
     if (!response.ok) {
       throw new Error('エラーが発生しました');
@@ -23,7 +23,7 @@ export async function getSortedPostsData() {
 }
 
 export async function getAllPostIds() {
-  const res = await fetch('http://'+ process.env.HOST_DOMAIN +'/api/v1/posts')
+  const res = await fetch('http://'+ process.env.API_URL +'/api/v1/posts')
   .then(response => {
     if (!response.ok) {
       throw new Error('エラーが発生しました');
@@ -41,7 +41,7 @@ export async function getAllPostIds() {
 }
 
 export async function getPostData(id) {
-  const res = await fetch('http://'+ process.env.HOST_DOMAIN +'/api/v1/post/'+ id)
+  const res = await fetch('http://'+ process.env.API_URL +'/api/v1/post/'+ id)
   .then(response => {
     if (!response.ok) {
       throw new Error('エラーが発生しました');
@@ -54,7 +54,7 @@ export async function getPostData(id) {
 
 
 export async function createPostData() {
-  const res = await fetch('http://'+ process.env.HOST_DOMAIN +'/api/v1/post/')
+  const res = await fetch('http://'+ process.env.API_URL +'/api/v1/post/')
   .then(response => {
     if (!response.ok) {
       throw new Error('エラーが発生しました');
