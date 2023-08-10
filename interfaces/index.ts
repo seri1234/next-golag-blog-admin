@@ -7,7 +7,7 @@
 export type Post = {
   id: number
   title: string
-  content: string
+  contentHtml: string
   createdAt: any
   updatedAt: any
 }
