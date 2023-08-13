@@ -1,0 +1,16 @@
+.form_blk {
+    display: block;
+}
+
+.alert {
+    color: #ff0000;
+}
+
+.title_text {
+    width: 90%;
+}
+
+.content_text {
+    width: 90%;
+    height: 30em;
+}
